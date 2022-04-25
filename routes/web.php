@@ -21,4 +21,5 @@ Route::get('/', function () {
 Route::controller(UserController::class)->group(function () {
     Route::get('/users', 'getUsers');
     Route::get('/getPush', 'sendPush');
+    Route::get('/testException', 'throwException');
 });
