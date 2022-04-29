@@ -20,11 +20,10 @@ class UserController extends Controller
         $this->userService = $userService;
     }
 
-    public function getUsers(): array
-    {
-        return $this->userService->getAll();
-        //ExampleEvent::dispatch("message");
-    }
+    // public function getUsers(): array
+    // {
+    //     //ExampleEvent::dispatch("message");
+    // }
 
     public function sendPush()
     {

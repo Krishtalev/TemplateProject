@@ -12,7 +12,7 @@ class ErrorException extends Exception
         parent::__construct($message, $code, $previous);
     }
 
-    public function render()
+    public function render(): \Illuminate\Http\JsonResponse
     {
         return response()->json(['succes' => 'false', 'message' => $this->message], $this->code);
     }
