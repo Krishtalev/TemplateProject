@@ -5,10 +5,12 @@ namespace App\Services;
 use App\Repositories\UserRepository;
 use App\Services\Interfaces\IUserServiceInterface;
 
-class UserService extends BaseService implements IUserServiceInterface
+class UserService implements IUserServiceInterface
 {
+    public UserRepository $repository; # спросить как заставить прогера определять Repository type
+
     public function __construct()
     {
-        static::$repository = new UserRepository();
+        $this->repository = new UserRepository();
     }
 }

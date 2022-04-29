@@ -2,18 +2,13 @@
 
 namespace App\Exceptions\ErrorException;
 
+use App\Responses\ErrorResponse;
 use Exception;
-use Throwable;
 
 class ErrorException extends Exception
 {
-    public function __construct(string $message = "", int $code = 422, ?Throwable $previous = null)
-    {
-        parent::__construct($message, $code, $previous);
-    }
-
     public function render(): \Illuminate\Http\JsonResponse
     {
-        return response()->json(['succes' => 'false', 'message' => $this->message], $this->code);
+        return ErrorResponse::response(null, __('exceptions.notFound.user'),422);
     }
 }

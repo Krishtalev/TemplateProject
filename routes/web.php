@@ -13,13 +13,3 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::controller(UserController::class)->group(function () {
-    Route::get('/users', 'getUsers');
-    Route::get('/getPush', 'sendPush');
-    Route::get('/test-exception', 'throwException');
-});
