@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Exceptions\CustomException;
+namespace App\Exceptions\ErrorException;
 
 use Exception;
 use Throwable;
 
-class CustomException extends Exception
+class ErrorException extends Exception
 {
     public function __construct(string $message = "", int $code = 422, ?Throwable $previous = null)
     {
@@ -14,6 +14,6 @@ class CustomException extends Exception
 
     public function render()
     {
-        return response(['error_message' => $this->message], $this->code, ['Content-Type' => 'application/json']);
+        return response()->json(['succes' => 'false', 'message' => $this->message], $this->code);
     }
 }

@@ -7,7 +7,8 @@ use App\Services\Interfaces\IUserServiceInterface;
 use Illuminate\Http\Request;
 use App\Services\UserService;
 use App\Events\ExampleEvent;
-use App\Exceptions\CustomException\CustomException;
+use App\Exceptions\ErrorException\ErrorException;
+use ErrorException as GlobalErrorException;
 use Illuminate\Support\Facades\Lang;
 
 class UserController extends Controller
@@ -32,7 +33,7 @@ class UserController extends Controller
 
     public function throwException()
     {
-        throw new CustomException(__('exceptions.notFound.user'));
+        throw new ErrorException(__('exceptions.notFound.user'));
         // Или так
         // throw new CustomException(Lang::get('exceptions.notFound.user'));
     }
